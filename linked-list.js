@@ -108,7 +108,27 @@ class LinkedList {
         currentNode.nextNode = null;
     }
 
-    
+    contains(input) {
+        if(this.head.value == null) {
+            return false;
+        }
+
+        let currentNode = this.head;
+        //while the next two don't equal null, will stop when the next one is the last one, THEN
+        //you can make the next one equal null
+        while(currentNode !== null) {
+            if (currentNode.value == input) {
+                console.log("true");
+                return true;
+            } else {
+                currentNode = currentNode.nextNode;
+            }
+        }
+        
+        console.log("false");
+        return false;
+
+    }
 }
 
 let defaultList = new LinkedList();
@@ -117,7 +137,7 @@ defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("cat");
 defaultList.at(1);
-defaultList.pop();
 defaultList.size();
+defaultList.contains("cat");
 
 console.log(defaultList);
