@@ -37,6 +37,21 @@ class LinkedList {
             this.head = currentNode;
         }  
     }
+
+    size() {
+        let listSize = 0;
+        
+        let currentNode = this.head;
+
+        //while there IS a next node, add to list size, then move on to next one
+        while(currentNode.nextNode !== null) {
+            listSize++;
+            currentNode = currentNode.nextNode;
+        }
+
+        console.log(listSize);
+        return listSize;
+    }
 }
 
 let defaultList = new LinkedList();
@@ -44,5 +59,6 @@ let defaultList = new LinkedList();
 defaultList.append("dog");
 defaultList.append("cat");
 defaultList.prepend("monkey");
+defaultList.size();
 
 console.log(defaultList);
