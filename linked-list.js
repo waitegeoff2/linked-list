@@ -44,7 +44,7 @@ class LinkedList {
         let currentNode = this.head;
 
         //while there IS a next node, add to list size, then move on to next one
-        while(currentNode.nextNode !== null) {
+        while(currentNode !== null) {
             listSize++;
             currentNode = currentNode.nextNode;
         }
@@ -86,6 +86,29 @@ class LinkedList {
         console.log(currentNode);
         return currentNode;
     }
+
+    pop() {
+        if(this.head === null){
+            console.log("nothing to remove");
+            return this.head;
+        } 
+
+        if(this.head.nextNode === null) {
+            this.head = null;
+            return;
+        }
+
+        let currentNode = this.head;
+        //while the next two don't equal null, will stop when the next one is the last one, THEN
+        //you can make the next one equal null
+        while(currentNode.nextNode !== null  && currentNode.nextNode.nextNode !== null) {
+            currentNode = currentNode.nextNode;
+        }
+        
+        currentNode.nextNode = null;
+    }
+
+    
 }
 
 let defaultList = new LinkedList();
@@ -93,7 +116,8 @@ let defaultList = new LinkedList();
 defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("cat");
-defaultList.size();
 defaultList.at(1);
+defaultList.pop();
+defaultList.size();
 
 console.log(defaultList);
