@@ -52,13 +52,48 @@ class LinkedList {
         console.log(listSize);
         return listSize;
     }
+
+    returnHead() {
+        console.log(this.head);
+        return this.head;
+    }
+
+    returnTail() {
+        if(this.head === null){
+            console.log(this.head);
+            return this.head;
+        }
+
+        let currentNode = this.head;
+
+        while(currentNode.nextNode !== null) {
+            currentNode = currentNode.nextNode;
+        } 
+        console.log(currentNode);
+        return currentNode;
+    }
+
+    at(index) {
+        let currentNode = this.head;
+
+        for(let i=0; i < index; i++) {
+            if(currentNode.nextNode === null) {
+                return console.log("no node here");
+            } else if (currentNode.nextNode !== null) {
+                currentNode = currentNode.nextNode;
+            }
+        }
+        console.log(currentNode);
+        return currentNode;
+    }
 }
 
 let defaultList = new LinkedList();
 
+defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("cat");
-defaultList.prepend("monkey");
 defaultList.size();
+defaultList.at(1);
 
 console.log(defaultList);
