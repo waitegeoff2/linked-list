@@ -129,15 +129,44 @@ class LinkedList {
         return false;
 
     }
+
+    find(input) {
+        //combine the index one above with the contains one
+        //loop through values while updating index. If true, return index of where you found it
+        if(this.head.value == null) {
+            return false;
+        }
+
+        let currentNode = this.head;
+        let index = 0;
+        //while the next two don't equal null, will stop when the next one is the last one, THEN
+        //you can make the next one equal null
+        while(currentNode !== null) {
+            if (currentNode.value == input) {
+                console.log('true at ' + index);
+                return index;
+            } else {
+                currentNode = currentNode.nextNode;
+                index++;
+            }
+        }
+        
+        console.log("null");
+        return null;
+    }
 }
 
 let defaultList = new LinkedList();
 
 defaultList.prepend("monkey");
 defaultList.append("dog");
+defaultList.append("rat");
 defaultList.append("cat");
 defaultList.at(1);
 defaultList.size();
 defaultList.contains("cat");
+defaultList.find("monkey");
+defaultList.find("dog");
+defaultList.find("cat");
 
 console.log(defaultList);
