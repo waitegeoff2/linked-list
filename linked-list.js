@@ -169,6 +169,8 @@ class LinkedList {
 
 //Testing the code
 
+let defaultList = new LinkedList;
+
 defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("rat");
