@@ -31,7 +31,6 @@ class LinkedList {
         if(this.head == null){
             this.head = new Node(value);
         } else if (this.head !== null) {
-            //add node in front of head
             let currentNode = new Node(value);
             currentNode.nextNode = this.head;
             this.head = currentNode;
@@ -49,18 +48,15 @@ class LinkedList {
             currentNode = currentNode.nextNode;
         }
 
-        console.log(listSize);
         return listSize;
     }
 
     returnHead() {
-        console.log(this.head);
         return this.head;
     }
 
     returnTail() {
         if(this.head === null){
-            console.log(this.head);
             return this.head;
         }
 
@@ -69,7 +65,6 @@ class LinkedList {
         while(currentNode.nextNode !== null) {
             currentNode = currentNode.nextNode;
         } 
-        console.log(currentNode);
         return currentNode;
     }
 
@@ -78,19 +73,17 @@ class LinkedList {
 
         for(let i=0; i < index; i++) {
             if(currentNode.nextNode === null) {
-                return console.log("no node here");
+                return "no node here";
             } else if (currentNode.nextNode !== null) {
                 currentNode = currentNode.nextNode;
             }
         }
-        console.log(currentNode);
         return currentNode;
     }
 
     pop() {
         if(this.head === null){
-            console.log("nothing to remove");
-            return this.head;
+            return "nothing to remove";
         } 
 
         if(this.head.nextNode === null) {
@@ -118,14 +111,12 @@ class LinkedList {
         //you can make the next one equal null
         while(currentNode !== null) {
             if (currentNode.value == input) {
-                console.log("true");
                 return true;
             } else {
                 currentNode = currentNode.nextNode;
             }
         }
         
-        console.log("false");
         return false;
 
     }
@@ -143,21 +134,19 @@ class LinkedList {
         //you can make the next one equal null
         while(currentNode !== null) {
             if (currentNode.value == input) {
-                console.log('true at ' + index);
-                return index;
+                return 'true at ' + index;
             } else {
                 currentNode = currentNode.nextNode;
                 index++;
             }
         }
         
-        console.log("null");
         return null;
     }
 
     toString() {
         //while loop through entire thing, adding a string each timne
-        let linkedListString = ""; //add to this each time through loop
+        let linkedListString = ""; 
 
         let currentNode = this.head;
 
@@ -169,19 +158,27 @@ class LinkedList {
         return linkedListString;
     }
 
+    // insertAt(value, index) {
+    //     let currentNode = this.head;
+
+    //     //loop until you get to the index you are adding. Make currentnode.nextnode = next node. make
+    //     //one before that equal the current node too. 
+    // }
+
 }
 
-let defaultList = new LinkedList();
+//Testing the code
 
 defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("rat");
 defaultList.append("beagle");
 defaultList.append("cat");
-defaultList.at(1);
-defaultList.size();
-defaultList.contains("cat");
-defaultList.find("monkey");
+console.log(defaultList.at(0));
+console.log(defaultList.returnTail());
+console.log(defaultList.size());
+console.log(defaultList.contains("catt"));
+console.log(defaultList.find("dog"));
 defaultList.find("dog");
 defaultList.find("catboy");
 console.log(defaultList.toString());
