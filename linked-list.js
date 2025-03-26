@@ -154,6 +154,21 @@ class LinkedList {
         console.log("null");
         return null;
     }
+
+    toString() {
+        //while loop through entire thing, adding a string each timne
+        let linkedListString = ""; //add to this each time through loop
+
+        let currentNode = this.head;
+
+        while(currentNode !== null) {
+            linkedListString += "( " + currentNode.value + " ) -> ";
+            currentNode = currentNode.nextNode;
+        }
+        linkedListString += "null";
+        return linkedListString;
+    }
+
 }
 
 let defaultList = new LinkedList();
@@ -161,12 +176,15 @@ let defaultList = new LinkedList();
 defaultList.prepend("monkey");
 defaultList.append("dog");
 defaultList.append("rat");
+defaultList.append("beagle");
 defaultList.append("cat");
 defaultList.at(1);
 defaultList.size();
 defaultList.contains("cat");
 defaultList.find("monkey");
 defaultList.find("dog");
-defaultList.find("cat");
+defaultList.find("catboy");
+console.log(defaultList.toString());
+
 
 console.log(defaultList);
